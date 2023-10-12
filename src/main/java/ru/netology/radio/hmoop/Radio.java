@@ -1,17 +1,18 @@
 package ru.netology.radio.hmoop;
-
 public class Radio {
-
-    private int maxRadioStation;
+    private final int maxRadioStation;
     private int minRadioStation;
     private int currentRadioStation;
     private int currentVolume;
-    public Radio () {
+    public Radio() {
         this.maxRadioStation = 9;
         this.minRadioStation = 0;
     }
-    public Radio (int stationsCount) {
-        this.maxRadioStation = stationsCount -1;
+    public Radio(int stationsCount) {
+        this.maxRadioStation = stationsCount - 1;
+    }
+    public int getCurrentRadioStation() {
+        return currentRadioStation;
     }
     public void setCurrentRadioStation(int currentRadioStation) {
         if (currentRadioStation < minRadioStation) {
@@ -21,19 +22,6 @@ public class Radio {
             return;
         }
         this.currentRadioStation = currentRadioStation;
-    }
-    public void setCurrentVolume(int currentVolume) {
-        if (currentVolume < 0) {
-            return;
-        }
-        if (currentVolume > 100) {
-            return;
-        }
-        this.currentVolume = currentVolume;
-    }
-
-    public int getCurrentRadioStation() {
-        return currentRadioStation;
     }
     public void nextRadioStation() {
         if (currentRadioStation != maxRadioStation) {
@@ -51,6 +39,15 @@ public class Radio {
     }
     public int getCurrentVolume() {
         return currentVolume;
+    }
+    public void setCurrentVolume(int currentVolume) {
+        if (currentVolume < 0) {
+            return;
+        }
+        if (currentVolume > 100) {
+            return;
+        }
+        this.currentVolume = currentVolume;
     }
     public void increaseVolume() {
         if (currentVolume != 100) {
